@@ -81,6 +81,16 @@ library
     Data.Functor.Foldable
     Data.Functor.Base
 
+  -- This version of the API requires TypeApplication to distinguish multiple Zygo helpers
+  if impl(ghc >= 8.0)
+    exposed-modules:
+      RecursionSchemes
+      RecursionSchemes.Hylo
+      RecursionSchemes.Custom.Gather
+      RecursionSchemes.Custom.Scatter
+      RecursionSchemes.Internal.Gather
+      RecursionSchemes.Internal.Scatter
+
   if flag(template-haskell)
     build-depends:
       template-haskell >= 2.5.0.0 && < 2.18,
